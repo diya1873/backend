@@ -13,6 +13,7 @@ app.use(bodyParser.json());
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
+  ssl: true,  // تأكد من تضمين SSL
 });
 
 const db = mongoose.connection;
