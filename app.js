@@ -3,7 +3,7 @@ require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
-
+const cors = require('cors');
 const app = express();
 
 // Middleware
@@ -31,7 +31,8 @@ const FormSchema = new mongoose.Schema({
 
 const Form = mongoose.model("Form", FormSchema);
 
-
+// Enable CORS for all origins (You can customize this to restrict to specific domains)
+app.use(cors());
 
 // POST Endpoint
 app.post("/submit-form", async (req, res) => {
